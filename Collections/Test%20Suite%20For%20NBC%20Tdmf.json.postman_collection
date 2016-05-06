@@ -1,0 +1,74 @@
+{
+	"id": "260a1ecf-7892-8def-bd2f-b3d66a6075ff",
+	"name": "Test Suite For NBC Tdmf",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "28fa3de4-9d75-32aa-5d58-d8db64902820",
+			"name": "TDMF Is Valid",
+			"description": "testa che sia valido il json",
+			"order": [
+				"74b2fb1c-2b4b-6839-2285-7575f6a230df"
+			],
+			"owner": 0
+		},
+		{
+			"id": "d2220d2b-dcc0-f02c-dd4d-901271cd051e",
+			"name": "TDMF has Correct Advertising",
+			"description": "",
+			"order": [
+				"f8be6319-d541-1b44-389b-883c04a7cd3e"
+			],
+			"owner": 0,
+			"collectionId": "260a1ecf-7892-8def-bd2f-b3d66a6075ff"
+		}
+	],
+	"timestamp": 1462450574491,
+	"owner": 0,
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "74b2fb1c-2b4b-6839-2285-7575f6a230df",
+			"headers": "Authorization: Basic c3RlZmFuby5nYWpvbjpEcnVua2VkMSE=\n",
+			"url": "http://{{basepath}}/:url",
+			"preRequestScript": null,
+			"pathVariables": {
+				"url": "{{url}}"
+			},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "function isEmpty(obj) {\r\n    for(var prop in obj) {\r\n        if(obj.hasOwnProperty(prop))\r\n            return false;\r\n    }\r\n\r\n    return true && JSON.stringify(obj) === JSON.stringify({});\r\n}\r\n\r\n//Feed Default Object if not in \"Postman Runner\r\nif (isEmpty(data))\r\n{\r\n    data = {\r\n        url: \"mobileapp/device=tablet/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc\",\r\n        platform: \"tablet\",\r\n        adv_section_id: \"today_header_2\",\r\n        adv_unit_id: \"/2620/olympics2016_app/notchromed/home_video/hub\",\r\n        adv_width: \"728\",\r\n        adv_height: \"90\"\r\n    };\r\n}\r\n\r\nfunction TdmfResponseModel(tdmf, isValid, errorMessage) {\r\n    this.tdmf = tdmf;\r\n    this.isValid = isValid;\r\n    this.errorMessage = errorMessage;\r\n};\r\n\r\n\r\nvar parseTdmf = function (jsonStr) {\r\n    try {\r\n        var tdmf = JSON.parse(jsonStr);\r\n        return new TdmfResponseModel(tdmf, true, null);\r\n    }\r\n    catch (err) {\r\n        return new TdmfResponseModel(tdmf, false, err.message);\r\n    }\r\n}\r\n\r\ntests[\"Feed is Loaded\"] = responseCode.code === 200;\r\n\r\nvar model = parseTdmf(responseBody)\r\n\r\nif (model.isValid) {\r\n    tests[\"Feed is a valid TDMF\"] = true;\r\n}\r\nelse {\r\n    tests[\"Feed [\" + data.url + \"] is not a valid TDMF: \" + model.errorMessage] = false;\r\n}\r\n\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1462534437171,
+			"name": "Feed is a Valid Json",
+			"description": "",
+			"collectionId": "260a1ecf-7892-8def-bd2f-b3d66a6075ff",
+			"responses": []
+		},
+		{
+			"id": "f8be6319-d541-1b44-389b-883c04a7cd3e",
+			"headers": "",
+			"url": "http://{{basepath}}/:url",
+			"preRequestScript": null,
+			"pathVariables": {
+				"url": "{{url}}"
+			},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "function isEmpty(obj) {\r\n    for (var prop in obj) {\r\n        if (obj.hasOwnProperty(prop))\r\n            return false;\r\n    }\r\n\r\n    return true && JSON.stringify(obj) === JSON.stringify({});\r\n}\r\n\r\n//Feed Default Object if not in \"Postman Runner\r\nif (isEmpty(data)) {\r\n    data = {\r\n        url: \"mobileapp/device=tablet/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc\",\r\n        platform: \"tablet\",\r\n        adv_section_id: \"advertising\",\r\n        adv_unit_id: \"/2620/olympics2016_app/notchromed/home_video/hub\",\r\n        adv_width: \"728\",\r\n        adv_height: \"90\"\r\n    };\r\n}\r\n\r\nfunction AdvertisingModel(unitId, width, heigth) {\r\n    this.unitId = unitId;\r\n    this.width = width;\r\n    this.height = heigth;\r\n    this.message;\r\n}\r\n\r\nfunction TdmfResponseModel(tdmf, isValid, errorMessage) {\r\n    this.tdmf = tdmf;\r\n    this.isValid = isValid;\r\n    this.errorMessage = errorMessage;\r\n    this.getAdvertisingForFooter = function (platform, advSectionId) {\r\n\r\n        var advSections = this.tdmf.Sections.filter(function (obj) {\r\n            return obj.ID == advSectionId;\r\n        });\r\n\r\n        if (advSections.length == 0) {\r\n            return null;\r\n        }\r\n\r\n        try {\r\n            var adv = advSections[0].Items[0].Extensions.Advertising.filter(function (obj) {\r\n                return obj.Platform.toLowerCase() == platform.toLowerCase();\r\n            });\r\n\r\n            var unitId;\r\n            var width;\r\n            var height;\r\n\r\n            if (adv.length > 0) {\r\n                var platformAdv = adv[0];\r\n                unitId = platformAdv.Parameters.unit_id;\r\n                width = platformAdv.Parameters.size.width;\r\n                height = platformAdv.Parameters.size.height;\r\n            }\r\n\r\n            return new AdvertisingModel(unitId, width, height);\r\n\r\n        } catch (error) {\r\n            return new AdvertisingModel(null, null, null);\r\n        }\r\n\r\n    };\r\n};\r\n\r\n\r\n\r\nvar parseTdmf = function (jsonStr) {\r\n    try {\r\n        var tdmf = JSON.parse(jsonStr);\r\n        return new TdmfResponseModel(tdmf, true, null);\r\n    }\r\n    catch (err) {\r\n        return new TdmfResponseModel(tdmf, false, err.message);\r\n    }\r\n}\r\n\r\ntests[\"Feed is Loaded\"] = responseCode.code === 200;\r\n\r\nvar model = parseTdmf(responseBody)\r\n\r\nif (model.isValid) {\r\n\r\n    tests[\"Feed is a valid TDMF\"] = true;\r\n\r\n    var adv = model.getAdvertisingForFooter(data.platform, data.adv_section_id);\r\n\r\n    if (adv !== null) {\r\n        tests[\"Adv [section: \" + data.adv_section_id + \"] Node Exist\"] = true;\r\n\r\n        if (adv.unitId == data.adv_unit_id) {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] UnitId Correct\"] = true;\r\n        }\r\n        else {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] UnitId Correct [\" + data.url + \"] [expected: \" + data.adv_unit_id + \"] vs [actual:\" + adv.unitId + \"]\"] = false;\r\n        }\r\n\r\n        if (adv.width == data.adv_width) {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] Width Correct\"] = true;\r\n        }\r\n        else {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] Width Correct [\" + data.url + \"] [expected: \" + data.adv_width + \"] vs [actual:\" + adv.width + \"]\"] = false;\r\n        }\r\n\r\n        if (adv.height == data.adv_height) {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] Height Correct\"] = true;\r\n        }\r\n        else {\r\n            tests[\"Adv [section: \" + data.adv_section_id + \"] Height Correct [\" + data.url + \"] [expected: \" + data.adv_height + \"] vs [actual:\" + adv.height + \"]\"] = false;\r\n        }\r\n    }\r\n    else {\r\n        tests[\"Adv [section: \" + data.adv_section_id + \"] Node Exist [\" + data.url + \"]\"] = false;\r\n    }\r\n\r\n\r\n\r\n}\r\nelse {\r\n    tests[\"Feed [\" + data.url + \"] is not a valid TDMF: \" + model.errorMessage] = false;\r\n}\r\n\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1462534387051,
+			"name": "Feed Has Correct Advertising UnitId & Size",
+			"description": "",
+			"collectionId": "260a1ecf-7892-8def-bd2f-b3d66a6075ff",
+			"responses": []
+		}
+	]
+}

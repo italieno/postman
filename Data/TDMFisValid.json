@@ -1,0 +1,41 @@
+[
+    {
+        "url": "mobileapp/device=tablet/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=smartphone/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/homepage/gamestime/nbc/main.tablet.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/homepage/gamestime/nbc/main.smartphone.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=tablet/homepage/gamestime/nbc/main.results.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=smartphone/homepage/gamestime/nbc/main.results.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/editorial/videolist/hub/list.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=tablet/riofeed/main.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=smartphone/riofeed/main.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=tablet/myteam/nbc/index.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=smartphone/myteam/nbc/index.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=tablet/medals/medals_overall.json?timezone=gmt-7&localstation=wnbc"
+    },
+    {
+        "url": "mobileapp/device=smartphone/medals/medals_overall.json?timezone=gmt-7&localstation=wnbc"
+    }
+]

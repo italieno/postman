@@ -1,0 +1,114 @@
+[
+    {
+        "url": "mobileapp/device=tablet/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/home_video/hub",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=smartphone/homepage/pregames/nbc/main.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/home_video/hub",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/homepage/gamestime/nbc/main.tablet.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/home_video/hub",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/homepage/gamestime/nbc/main.smartphone.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/home_video/hub",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=tablet/homepage/gamestime/nbc/main.results.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/teamusalogo/home_results/hub",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=tablet/homepage/gamestime/nbc/main.results.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/teamusalogo/home_results/hub",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/editorial/videolist/hub/list.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/watch/trending",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/editorial/videolist/hub/list.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/watch/trending",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=tablet/riofeed/main.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/newsfeed_activity",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=smartphone/riofeed/main.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/newsfeed_activity",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=tablet/myteam/nbc/index.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/team_usa/hub",
+        "adv_width": "728",
+        "adv_height": "90",
+        "platform": "tablet",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=smartphone/myteam/nbc/index.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/team_usa/hub",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=smartphone/medals/medals_overall.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/medals/hub",
+        "adv_width": "320",
+        "adv_height": "50",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    },
+    {
+        "url": "mobileapp/device=tablet/medals/medals_overall.json?timezone=gmt-7&localstation=wnbc",
+        "adv_unit_id": "/2620/olympics2016_app/notchromed/medals/hub",
+        "adv_width": "300",
+        "adv_height": "250",
+        "platform": "smartphone",
+        "adv_section_id": "advertising"
+    }
+]
